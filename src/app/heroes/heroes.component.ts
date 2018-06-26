@@ -10,6 +10,7 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
   hero: Hero = {id: 1, name: 'Winstorm'};
   heroes = HEROES;
+  selectedHero: Hero;
 
   constructor() {
     console.log('HeroesComponent Constructor');
@@ -19,4 +20,11 @@ export class HeroesComponent implements OnInit {
     console.log('HeroesComponent ngOnInit');
   }
 
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
+  keyupHandler(event) {
+   this.selectedHero.name = event.target.value;
+  }
 }
