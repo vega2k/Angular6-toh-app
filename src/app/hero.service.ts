@@ -20,6 +20,7 @@ export class HeroService {
 
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
     return this.http.get<Hero>(url);
   }
 }
